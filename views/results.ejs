@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+<h1 class="display-4">COVID 19 TRACKER</h1>
+<form action="/" method="GET" class="d-flex flex-row" id="input">
+    <input type="text" name="state" placeholder="Enter State" class="form-control" >
+    <input type="submit" class="btn btn-dark">
+</form>
+<%if(stateName){ %>
+    <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Cases</th>
+          </tr>
+        </thead>
+<%allData.statewise.forEach((data)=>{%>
+    <% if(data.state === stateName || data.state.toLowerCase() === stateName || data.state.toUpperCase() === stateName){%>
+        <p class="display-4"><%=data.state%></p>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Confirmed</td>
+                <td><%=data.confirmed %></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Active</td>
+                <td><%=data.active %></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Recovered</td>
+                <td><%=data.recovered %></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Deaths</td>
+                <td><%=data.deaths %></td>
+            </tr>
+        </tbody>
+    </table>
+        <p>LAST UPDATED TIME::<%=data.lastupdatedtime %></p>
+    <%}%>
+<%})%>
+<%}%>
+<%- include('./partials/footer.ejs') %>
