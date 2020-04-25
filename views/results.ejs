@@ -20,7 +20,7 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Confirmed</td>
-                <td><%=data.confirmed %></td>
+                <td><%=data.confirmed %><span class="text-danger"> <i class="fa fa-arrow-up"></i><%=data.deltaconfirmed%></span></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -30,12 +30,12 @@
             <tr>
                 <th scope="row">3</th>
                 <td>Recovered</td>
-                <td><%=data.recovered %></td>
+                <td><%=data.recovered %><span class="text-success"> <i class="fa fa-arrow-up"></i><%=data.deltarecovered%></span></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td>Deaths</td>
-                <td><%=data.deaths %></td>
+                <td><%=data.deaths %><span class="text-danger"> <i class="fa fa-arrow-up"></i><%=data.deltadeaths%></span></td>
             </tr>
         </tbody>
     </table>
