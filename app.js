@@ -15,7 +15,16 @@ app.get('/', (req, res) => {
 			console.log(`Error : ${err.message}`);
 		});
 });
-
+app.get('/states', (req, res) => {
+	requestPromise('https://api.covid19india.org/data.json')
+		.then((body) => {
+			var parsedData = JSON.parse(body);
+			res.render('states', { allData: parsedData });
+		})
+		.catch((err) => {
+			console.log(`Error : ${err.message}`);
+		});
+});
 app.listen(PORT, () => {
 	console.log(`Server has started at ${PORT}`);
 });
