@@ -6,21 +6,21 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">State</th>
-            <th scope="col">Confirmed</th>
+            <th scope="col" id="confirmed">Confirmed</th>
             <th scope="col">Active</th>
             <th scope="col">Recovered</th>
-            <th scope="col">Deaths</th>
+            <th scope="col" >Deaths</th>
           </tr>
         </thead>
         <%allData.statewise.forEach((data)=>{%>
             <tbody>
                 <tr>
                     <th scope="row"><%=number%></th>
-                    <td><%=data.state%></td>
-                    <td><%=data.confirmed%> <span class="text-danger"><i class="fa fa-arrow-up"></i><%=data.deltaconfirmed%></span></td>
+                    <td><%=data.statecode%></td>
+                    <td><%=data.confirmed%> <span class="text-danger "><i class="fa fa-arrow-up"></i><%=data.deltaconfirmed%></span></td>
                     <td><%=data.active %></td>
-                    <td><%=data.recovered%> <span class="text-success"><i class="fa fa-arrow-up"></i><%=data.deltarecovered%></span></td>
-                    <td><%=data.deaths%> <span class="text-danger"><i class="fa fa-arrow-up"></i><%=data.deltadeaths%></span></td>
+                    <td ><%=data.recovered%> <span class="text-success ""><i class="fa fa-arrow-up"></i><%=data.deltarecovered%></span></td>
+                    <td ><%=data.deaths%> <span class="text-danger "><i class="fa fa-arrow-up"></i><%=data.deltadeaths%></span></td>
                 </tr>
             <%number=number+1;%>
         <%})%>

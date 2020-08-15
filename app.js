@@ -25,6 +25,7 @@ app.get('/states', (req, res) => {
 			console.log(`Error : ${err.message}`);
 		});
 });
+
 app.listen(PORT, () => {
 	console.log(`Server has started at ${PORT}`);
 });
