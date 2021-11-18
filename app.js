@@ -40,6 +40,25 @@ app.get('/data', (req, res) => {
 			console.log(`Error : ${err.message}`);
 		});
 });
+app.get('/weatherdata/:city', (req, res) => {
+	let { city } = req.params;
+	requestPromise(
+		'http://api.weatherapi.com/v1/forecast.json?key=aeecf0a0fae54afb81b211752211711&q=' +
+			city +
+			'&days=10&aqi=no&alerts=no'
+	)
+		.then((body) => {
+			// console.log(
+			// 	'http://api.weatherapi.com/v1/forecast.json?key=aeecf0a0fae54afb81b211752211711&days=10&aqi=no&alerts=no&q=' +
+			// 		city
+			// );
+			var parsedData = JSON.parse(body);
+			res.json(parsedData);
+		})
+		.catch((err) => {
+			console.log(`Error : ${err.message}`);
+		});
+});
 app.listen(PORT, () => {
 	console.log(`Server has started at ${PORT}`);
 });
